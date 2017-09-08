@@ -8,7 +8,7 @@
 
 dir=~/dotfiles
 olddir=~/dotfiles_old
-files="bash_profile bashrc vimrc tmux.conf"
+files="bash_profile bashrc vimrc tmux.conf inputrc"
 
 ##########
 
