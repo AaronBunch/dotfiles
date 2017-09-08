@@ -213,3 +213,6 @@ let g:Tex_MultipleCompileFormats='pdf,bibtex,pdf'
 
 " <F9> automatically runs python code
 nnoremap <silent> <F9> :!clear;python %<CR>
+
+:abbreviate #t # TODO(abunch):
+
