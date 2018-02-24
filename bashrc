@@ -12,3 +12,6 @@ alias ll='ls -al'
 
 # added by Anaconda2 4.3.1 installer
 export PATH="/Users/aaronbunch/anaconda/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
