@@ -6,7 +6,79 @@
 "              on this file is still a good idea.
 
 set nocompatible
-filetype plugin indent on 
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+" add all plugins here
+"
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+" Bundle 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+
+"
+" All plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+
+set splitbelow
+set splitright
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+nnoremap <space> za
+
+let g:SimpylFold_docstring_preview=1
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+set encoding=utf-8
+
+"let g:ycm_autoclose_preview_window_after_completion=1
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+let python_highlight_all=1
+syntax on
+
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme zenburn
+endif
+
+call togglebg#map("<F5>")
+
+set clipboard=unnamed
+
 "------------------------------------------------------------
 " Features {{{1
 "
@@ -21,10 +93,6 @@ filetype plugin indent on
 " and for plugins that are filetype specific.
 
 " let fortran_free_source=1
-
-" Enable syntax highlighting
-syntax on
- 
  
 "------------------------------------------------------------
 " Must have options {{{1
@@ -129,23 +197,6 @@ set pastetoggle=<F11>
  
  
 "------------------------------------------------------------
-" Indentation options {{{1
-"
-" Indentation settings according to personal preference.
- 
-" Indentation settings for using 4 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
-set shiftwidth=4
-set softtabstop=4
-set expandtab
- 
-" Indentation settings for using hard tabs for indent. Display tabs as
-" four characters wide.
-"set shiftwidth=4
-"set tabstop=4
- 
- 
-"------------------------------------------------------------
 " Mappings {{{1
 "
 " Useful mappings
@@ -170,19 +221,6 @@ set autochdir
 
 " Save marks when closing session
 set viminfo='100,f1
-
-" Hard-wrap at 80 characters
-"setlocal formatoptions=ant
-set textwidth=80
-set wrapmargin=0
-set wrap
-set linebreak
-set nolist
-
-"augroup vimrc_autocmds
-"    autocmd BufEnter * highlight OverLength ctermbg=darkgrey guibg=#592929
-"    autocmd BufEnter * match OverLength /\%75v.*/
-"augroup END
 
 "UTF-8 processing
 runtime scripts/set_utf8.vim
