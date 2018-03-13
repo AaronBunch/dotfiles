@@ -8,8 +8,8 @@ source ~/.iterm2_shell_integration.`basename $SHELL`
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-alias la='ls -a'
-alias ll='ls -al'
+alias la='ls -aF'
+alias ll='ls -alF'
 
 # added by Anaconda2 4.3.1 installer
 export PATH="/Users/aaronbunch/anaconda/bin:$PATH"
