@@ -1,5 +1,4 @@
 export PATH=${PATH}:/usr/local/mysql/bin
-
 export PATH=${PATH}:/Users/aaronbunch/shell_scripts
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
